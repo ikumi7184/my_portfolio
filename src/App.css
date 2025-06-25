@@ -1,25 +1,32 @@
-.App {
-  font-size: 18px;
-  height: 100vh;
-  width: 100%;
+:root {
+  --main-color: #634547;
+  --sub-color: #eae8ed;
+  --acc-color: #662d8c;
+  --cha-color: #dbcaed;
 }
 
-header {
+.App {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 18px;
+  width: 100%;
+}
+/* ヘッダー */
+header {
   align-items: center;
   width: 100%;
-  background: black;
+  background: none;
   color: white;
   height: 90px;
   position: fixed;
   z-index: 100;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
-header .logo h3 {
-  margin: 0;
-  padding: 0;
-  color: white;
+nav {
+  text-shadow: 1px 1px 2px var(--main-color);
 }
 
 nav ul {
@@ -29,69 +36,204 @@ nav ul {
 
 nav ul li {
   list-style: none;
-  display: inline-block;
-  margin-right: 30px;
+  justify-content: center;
+}
+.nav-link:hover {
+  color: var(--cha-color);
 }
 
 nav ul li a {
   font-size: 19px;
   text-decoration: none;
-  color: var(--white-color);
+  color: white;
   transition: 0.3s all;
 }
 
-nav ul li a:hover {
-  color: #48b4af;
+.nav-link {
+  color: white;
 }
 
+/* メイン */
+/* 共通 */
 .container {
-  height: 100vh;
-  padding: 120px;
+  min-height: 100vh;
+  /* padding: 120px; */
+  flex: 1;
 }
 
-.container h1 {
-  text-align: center;
-  font-size: 50px;
+/* トップ */
+
+.bg-1 {
+  background-color: var(--main-color);
+  color: var(--sub-color);
+}
+.bg-2 {
+  background: var(--sub-color);
+  color: #634547;
 }
 
-.profileImage {
-  object-fit: cover;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  margin-bottom: 15px;
+.top {
+  min-height: 100vh;
 }
 
-img {
-  width: 300px;
-  height: 3cqb;
+.job {
+  position: relative;
+  top: 50vh;
+  text-align: start;
 }
 
-.service {
-  margin-top: 80px;
-  margin-bottom: 60px;
+/* プロフィール */
+.profile {
 }
 
+.history p {
+  text-align: start;
+}
+
+.section-single {
+  background-image: url(./img/bg-river.jpg);
+  min-height: 400px;
+  background-size: cover;
+  margin: 0 calc(50% - 50vw);
+  width: 100vw;
+}
+
+.img-wrapper {
+  margin: auto;
+  display: block;
+  max-width: 300px;
+}
+
+/* スキル */
+/* 
 #skill img {
   object-fit: cover;
   margin-bottom: 12px;
   margin-top: 12px;
   height: 300px;
+} */
+
+img.image {
+  margin: auto;
+  display: block;
+  width: 150px;
+  height: 150px;
 }
 
-#skill button {
-  margin-bottom: 100px;
+/* work */
+img.work_image {
+  margin: auto;
+  display: block;
+  width: 300px;
+  height: 300px;
 }
+.work img {
+  transition: transform 0.6s ease;
+}
+.work:hover img {
+  transform: scale(1.1);
+}
+
+.change_img {
+  cursor: none;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: auto;
+  display: block;
+  overflow: hidden;
+}
+
+.change_img img {
+  position: absolute;
+  /* -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
+  width: 100%;
+  display: block;
+  -webkit-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+}
+
+.change_img img:nth-of-type(2) {
+  opacity: 0;
+}
+.change_img:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* -webkit-transition: .6s ease-in-out;
+  transition: .6s ease-in-out; */
+}
+
+.change_img:hover img:nth-of-type(2) {
+  opacity: 1;
+}
+
+.badges {
+  max-width: 300px;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+/* footer */
 
 footer {
+  background-color: var(--main-color);
+  color: #fff; /* 文字は白 */
+  text-align: center; /* 文字を中央揃え */
+  padding: 20px 0; /* 上下に余白 */
+  font-size: 14px; /* 文字サイズ少し小さめ */
+}
+p {
+  margin: 0 !important;
+}
+
+:root {
+  --base: #eae8ed;
+  --bg-blend: luminosity;
+  --blur: 0px;
+  --fg-blend: screen;
+  --foreground: #634547;
+  --opacity: 1;
+  --spacing: 0px;
+}
+.img-wrapper {
+  background-color: var(--base);
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  flex: 1 1 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: var(--spacing);
+  position: relative;
+}
+
+.img-wrapper img {
+  filter: grayscale(100%) contrast(1) blur(var(--blur));
+  flex: 1 0 100%;
+  height: 100%;
+  max-width: 100%;
+  mix-blend-mode: var(--bg-blend);
+  object-fit: cover;
+  opacity: var(--opacity);
+  position: relative;
   width: 100%;
-  background: black;
-  color: white;
-  height: 90px;
-  position: fixed;
+}
+
+.img-wrapper::before {
+  background-color: var(--foreground);
   bottom: 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  mix-blend-mode: var(--fg-blend);
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
   z-index: 1;
 }
