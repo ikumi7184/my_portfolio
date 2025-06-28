@@ -54,8 +54,8 @@ const Homepage = () => {
           <div className="col-md-6 d-flex px-5 flex-column">
             <h2 className="py-3">profile</h2>
             <div className="name py-3">
-              <p className="fs-6">SHIZUKATA IKUMI</p>
-              <h3>シヅカタ イクミ</h3>
+              <p className="fs-6">ISHIZUKA TAKUMI</p>
+              <h3>イシヅカ タクミ</h3>
             </div>
 
             <div className="histories  row gap-2 fs-6 py-3">
